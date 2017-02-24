@@ -22,6 +22,14 @@ fun todoTask2(): Nothing = TODO(
     references = { collection: Collection<Int> -> task1(collection); collection.joinToString() })
 
 fun task2(collection: Collection<Int>): String {
-    todoTask2()
-    return collection.joinToString()
+    val iterator = collection.iterator();
+    val sb = StringBuilder("{");
+    while (iterator.hasNext()) {
+        sb.append(iterator.next())
+        if (iterator.hasNext()) {
+            sb.append(", ")
+        }
+    }
+    sb.append("}");
+    return sb.toString();
 }
